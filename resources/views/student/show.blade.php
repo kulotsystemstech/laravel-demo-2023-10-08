@@ -59,6 +59,14 @@
                         <a href="{{ route('student_index') }}" class="btn btn-outline-success">All Students</a>
                     </div>
                 @endif
+                <div>
+                    <a href="{{ route('student.edit', $student->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('student.destroy', $student->id) }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

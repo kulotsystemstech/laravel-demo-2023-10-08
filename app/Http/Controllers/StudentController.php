@@ -63,4 +63,15 @@ class StudentController extends Controller
 
         return redirect()->route('student_index');
     }
+    public function edit($id)
+{
+    $student = Student::findOrFail($id);
+    return view('student.edit', compact('student'));
+}
+    public function destroy($id)
+{
+    $student = Student::findOrFail($id);
+    $student->delete();
+    return redirect()->route('student.index');
+}
 }

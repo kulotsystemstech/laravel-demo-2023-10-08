@@ -34,3 +34,11 @@ Route::post('/student/'   , [StudentController::class, 'store' ])->name('student
 
 // display single student record
 Route::get('/student/{id}', [StudentController::class, 'show'  ])->name('student_show');
+
+
+// display edit
+Route::get('/student/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
+
+
+// display delete
+Route::delete('/student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
