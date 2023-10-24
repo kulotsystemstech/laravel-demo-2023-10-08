@@ -68,10 +68,46 @@ class StudentController extends Controller
     $student = Student::findOrFail($id);
     return view('student.edit', compact('student'));
 }
-    public function destroy($id)
+public function update(Request $request, $id)
 {
+    $request->validate([
+        'first_name' => 'required',
+        'last_name' => 'required',
+    ]);
+
     $student = Student::findOrFail($id);
-    $student->delete();
-    return redirect()->route('student.index');
+    $student->update($request->all());
+
+    return redirect()->route('student_show')->with('success', 'Student updated successfully.');
+}
+
+function delete_record($id){
+
+    Student::destroy($id);
+
+    return back();
+}
+function edit_record($id)
+{
+     $student = Student::find($id);
+    
+     return view('student.edit', compact('student'));
+
+
+}
+
+function update_student(Request $request, $id)
+{
+    $student = Student::find($id);
+
+    $student->first_name = $request->first_name;
+    $student->last_name = $request->last_name;
+    $student->is_male = $request->is_male;
+    
+    $student->save();
+     
+    return redirect()->route('student_show');
+
+
 }
 }

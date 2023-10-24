@@ -37,8 +37,12 @@ Route::get('/student/{id}', [StudentController::class, 'show'  ])->name('student
 
 
 // display edit
-Route::get('/student/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
+Route::get('edit_record/{id}', [StudentController::class, 'edit_record']);
 
 
 // display delete
-Route::delete('/student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
+Route::get('delete_record/{id}', [StudentController::class, 'delete_record']);
+
+
+// update data
+Route::post('update_student/{id}', [StudentController::class, 'update_student']);

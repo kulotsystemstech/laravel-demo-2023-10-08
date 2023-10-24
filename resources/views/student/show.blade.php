@@ -59,14 +59,8 @@
                         <a href="{{ route('student_index') }}" class="btn btn-outline-success">All Students</a>
                     </div>
                 @endif
-                <div>
-                    <a href="{{ route('student.edit', $student->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('student.destroy', $student->id) }}" method="POST" style="display: inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
+                <td> <a href="edit_record/{{$student->id}}" class="btn btn-primary">Edit</a>  </td> 
+                <td> <a href="delete_record/{{$student->id}}" class="btn btn-danger">Delete</a> </td>
             </div>
         </div>
     </div>
