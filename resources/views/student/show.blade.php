@@ -59,6 +59,8 @@
                         <a href="{{ route('student_index') }}" class="btn btn-outline-success">All Students</a>
                     </div>
                 @endif
+                <td> <a href="edit_record/{{$student->id}}" class="btn btn-primary">Edit</a>  </td> 
+                <td> <a href="delete_record/{{$student->id}}" class="btn btn-danger">Delete</a> </td>
             </div>
         </div>
     </div>
